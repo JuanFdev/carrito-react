@@ -14,28 +14,15 @@ export const Header = ({
 
   // Función para eliminar un producto del carrito
   const onDeleteProduct = product => {
-    // Filtrar la lista de productos para excluir el producto que se va a eliminar
-    const updatedProducts = allProducts.filter(item => item.id !== product.id);
-  
-    // Encontrar el producto que se va a eliminar para calcular su contribución al total
-    const deletedProduct = allProducts.find(item => item.id === product.id);
-  
-    // Calcular el nuevo total restando el costo del producto que se está eliminando
-    const newTotal = total - deletedProduct.price * deletedProduct.quantity;
-  
-    // Calcular el nuevo contador de productos restando la cantidad de productos del mismo tipo que se están eliminando
-    const newCountProducts = countProducts - deletedProduct.quantity;
-  
-    // Actualizar el estado 'total' con el nuevo total calculado
-    setTotal(newTotal);
-  
-    // Actualizar el estado 'countProducts' con el nuevo contador de productos
-    setCountProducts(newCountProducts);
-  
-    // Actualizar el estado 'allProducts' con la nueva lista de productos
-    setAllProducts(updatedProducts);
+    // Filtrar productos para obtener un nuevo arreglo sin el producto a eliminar
+    const results = allProducts.filter(item => item.id !== product.id);
+
+    // Actualizar el total y la cantidad de productos
+    setTotal(total - product.price * product.quantity);
+    setCountProducts(countProducts - product.quantity);
+    // Actualizar la lista de productos en el carrito
+    setAllProducts(results);
   };
-  
 
   // Función para limpiar todo el carrito
   const onCleanCart = () => {
@@ -46,7 +33,7 @@ export const Header = ({
 
   return (
     <header>
-      <h1>Tienda</h1>
+      <h1>Tienda Felipe</h1>
 
       <div className='container-icon'>
         <div
