@@ -1,0 +1,225 @@
+/* Resetear márgenes y rellenos y hacer que el box model sea de tipo border-box */
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo del documento */
+body {
+  margin: 0 auto; /* Centrar el contenido en la página */
+  max-width: 1200px; /* Ancho máximo del contenido */
+  font-family: 'Lato'; /* Fuente utilizada en el texto */
+  color: #333; /* Color de texto predeterminado */
+  background-color: beige;
+}
+
+/* Estilos para el icono de carrito */
+.icon-cart {
+  width: 40px;
+  height: 40px;
+  stroke: #000; /* Color del icono */
+}
+
+.icon-cart:hover {
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+}
+
+/* Estilos para las imágenes */
+img {
+  max-width: 100%; /* Asegurar que las imágenes no excedan el tamaño del contenedor */
+}
+
+/* Estilos para el encabezado */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0 40px 0; /* Espaciado del encabezado */
+}
+
+.container-icon {
+  position: relative; /* Posición relativa para el contenedor de iconos */
+}
+
+/* Estilos para el contador de productos en el icono de carrito */
+.count-products {
+  position: absolute; /* Posición absoluta para el contador de productos */
+  top: 55%; /* Posicionamiento vertical */
+  right: 0; /* Posicionamiento horizontal */
+
+  background-color: #000; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  width: 25px; /* Ancho del contador */
+  height: 25px; /* Altura del contador */
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrar el texto en el contador */
+  border-radius: 50%; /* Hacer el contador circular */
+}
+
+#contador-productos {
+  font-size: 12px; /* Tamaño de fuente del contador */
+}
+
+/* Estilos para el contenedor de productos en el carrito */
+.container-cart-products {
+  position: absolute; /* Posición absoluta para el contenedor de productos en el carrito */
+  top: 50px; /* Posicionamiento vertical */
+  right: 0; /* Posicionamiento horizontal */
+
+  background-color: #fff; /* Color de fondo */
+  width: 400px; /* Ancho del contenedor */
+  z-index: 1; /* Z-index para controlar la superposición */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilos para cada producto en el carrito */
+.cart-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px; /* Espaciado dentro del producto */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Línea divisoria */
+}
+
+.info-cart-product {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.8; /* Flexibilidad del contenido */
+}
+
+.titulo-producto-carrito {
+  font-size: 20px; /* Tamaño de fuente del título */
+}
+
+.precio-producto-carrito {
+  font-weight: 700; /* Grosor de la fuente */
+  font-size: 20px; /* Tamaño de fuente del precio */
+  margin-left: 10px; /* Margen izquierdo */
+}
+
+.cantidad-producto-carrito {
+  font-weight: 400; /* Grosor de la fuente */
+  font-size: 20px; /* Tamaño de fuente de la cantidad */
+}
+
+.icon-close {
+  width: 25px;
+  height: 25px; /* Tamaño del icono de cierre */
+}
+
+.icon-close:hover {
+  stroke: red; /* Color del icono de cierre al pasar por encima */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono de cierre */
+}
+
+/* Estilos para el total de compra en el carrito */
+.cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Espaciado del total de compra */
+  gap: 20px; /* Espacio entre elementos */
+}
+
+.cart-total h3 {
+  font-size: 20px; /* Tamaño de fuente del título */
+  font-weight: 700; /* Grosor de la fuente */
+}
+
+.total-pagar {
+  font-size: 20px; /* Tamaño de fuente del total a pagar */
+  font-weight: 900; /* Grosor de la fuente */
+}
+
+.hidden-cart {
+  display: none; /* Ocultar el contenedor de productos en el carrito */
+}
+
+/* Estilos para la lista de productos */
+.container-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cuadrícula de 3 columnas */
+  gap: 20px; /* Espacio entre elementos */
+}
+
+.item {
+  border-radius: 10px; /* Bordes redondeados de cada elemento */
+}
+
+.item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra al pasar por encima del elemento */
+}
+
+.item img {
+  width: 100%; /* Imagen al 100% del contenedor */
+  height: 300px; /* Altura fija de la imagen */
+  object-fit: cover; /* Ajuste del contenido de la imagen */
+  border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+  transition: all 0.5s; /* Transición al pasar por encima de la imagen */
+}
+
+.item figure {
+  overflow: hidden; /* Ocultar el desbordamiento de la imagen */
+}
+
+.item:hover img {
+  transform: scale(1.2); /* Escalar la imagen al pasar por encima */
+}
+
+.info-product {
+  padding: 15px 30px; /* Espaciado del contenido */
+  line-height: 2; /* Altura de línea */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre elementos */
+}
+
+.price {
+  font-size: 18px; /* Tamaño de fuente del precio */
+  font-weight: 900; /* Grosor de la fuente */
+}
+
+.info-product button {
+  border: none; /* Sin bordes */
+  background: none; /* Sin fondo */
+  background-color: #000; /* Color de fondo del botón */
+  color: #fff; /* Color de texto del botón */
+  padding: 15px 10px; /* Relleno del botón */
+  cursor: pointer; /* Cursor de puntero al pasar por encima */
+}
+
+.cart-empty {
+  padding: 20px; /* Espaciado dentro del mensaje de carrito vacío */
+  text-align: center; /* Alinear texto al centro */
+}
+
+.hidden {
+  display: none; /* Ocultar elementos con la clase 'hidden' */
+}
+
+.btn-clear-all {
+  border: none; /* Sin bordes */
+  background-color: #000; /* Color de fondo del botón */
+  color: #fff; /* Color de texto del botón */
+  padding: 15px 0; /* Relleno del botón */
+  display: block; /* Bloque de visualización */
+  width: 100%; /* Ancho completo */
+  margin-top: 10px; /* Margen superior */
+  border-bottom-left-radius: 10px; /* Bordes redondeados en la esquina inferior izquierda */
+  border-bottom-right-radius: 10px; /* Bordes redondeados en la esquina inferior derecha */
+  font-family: inherit; /* Heredar la fuente del elemento padre */
+  cursor: pointer; /* Cursor de puntero al pasar por encima */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: all .3s ease; /* Transición con efecto de suavizado */
+}
+
+.btn-clear-all:hover{
+  background-color: #333; /* Cambio de color de fondo al pasar por encima */
+  transform: scale(1.03); /* Escalar el botón al pasar por encima */
+  border-radius: 0; /* Bordes redondeados a cero */
+}
